@@ -10,5 +10,5 @@ CREATE TABLE users(
 CREATE TABLE tasks(
     id SERIAL PRIMARY KEY,
     title VARCHAR(40) NOT NULL,
-    status TEXT NOT NULL UNIQUE
+    completed BOOLEAN NOT NULL
 );

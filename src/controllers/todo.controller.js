@@ -24,13 +24,13 @@ const getTaskbyId = async (req, res) => {
 }
 
 const createTask = async (req, res) => {
-    const {title, status} = req.body;
-    const task = await pool.query("INSERT INTO tasks (title, status) VALUES ($1, $2)", [title, "pendiente"]);
+    const {title, completed} = req.body;
+    const task = await pool.query("INSERT INTO tasks (title, completed) VALUES ($1, $2)", [title, "false"]);
     try{
         res.status(200).json({
         message: "Tarea creada correctamente.",
         body: {
-            task: {title, status}
+            task: {title, completed}
         }})
     }catch(error){
         return res.json({error:error.message});
