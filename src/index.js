@@ -27,5 +27,8 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use(require("./routes/index"));
 
-app.listen(process.env.PORT || 3000, function () {
-  console.log("Server started on port 3000")});
+const port = process.env.PORT ?? 8080;
+
+app.listen(port, () => {
+  console.log(`App listening on port ${port}`);
+});
