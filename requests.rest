@@ -1,0 +1,19 @@
+GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFudG9ueSIsImVtYWlsIjoiYWxlZG9sbGUxQGdtYWlsLmNvbSIsImlhdCI6MTY4NzQ1MjMwNSwiZXhwIjoxNjg3NDU1OTA1fQ.Rrey7DxjeEO_gctqL-BtOx0jUbVKrnmtWJK90hJFddo
+
+###
+
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "email": "aledolle1@gmail.com",
+    "password": "abc123"
+}
+
+###
+
+GET http://localhost:3000/refresh_token
+
+###
+DELETE http://localhost:3000/refresh_token
