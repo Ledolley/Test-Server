@@ -48,6 +48,22 @@ const deleteTask = async (req, res) => {
 
 }
 
+const updateTask = async (req, res) => {
+    const id = req.params.id;
+    const {title, completed} = req.body;
+    const response = await pool.query("UPDATE tasks SET completed = $1 WHERE id = $2",
+    [completed, id]);
+    try{
+        res.status(200).json({
+        message: "Tarea actualizada correctamente.",
+        body: {
+            user: {id, title, completed}
+        }})
+    }catch(error){
+        return res.json({error:error.message});
+    }
+}
+
 
 
 
@@ -56,5 +72,6 @@ module.exports = {
     getTasks,
     getTaskbyId,
     createTask,
+    updateTask,
     deleteTask
 }

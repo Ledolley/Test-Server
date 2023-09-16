@@ -5,7 +5,7 @@ const router = Router ();
 //Imports services
 
 const { getUsers, getUserbyId, createUser, updateUser, deleteUser } = require("../controllers/users.controller");
-const { getTasks, getTaskbyId, createTask, deleteTask } = require("../controllers/todo.controller");
+const { getTasks, getTaskbyId, createTask, updateTask, deleteTask } = require("../controllers/todo.controller");
 
 //Users routes
 router.get("/users", getUsers);
@@ -18,6 +18,7 @@ router.delete("/users/:id", deleteUser);
 router.get("/tasks", getTasks);
 router.get("/tasks/:id", getTaskbyId);
 router.post("/task", createTask);
+router.put("/task/:id", updateTask);
 router.delete("/task/:id", deleteTask);
 
 module.exports = router;
